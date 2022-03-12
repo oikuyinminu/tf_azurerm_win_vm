@@ -20,7 +20,7 @@ variable "vm_size" {
 
 variable "network_interface" {
   description = "List of the network interface IDs to be attached VM."
-  type        = list(string)
+  type        = list(list(string))
 }
 
 variable "required_tags" {
