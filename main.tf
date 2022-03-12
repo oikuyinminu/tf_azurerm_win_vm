@@ -29,6 +29,7 @@ resource "azurerm_virtual_machine" "windows_vm" {
     caching           = "ReadWrite"
     create_option     = var.osdisk_create_option
     managed_disk_type = var.os_disk_type
+    disk_size_gb      = var.os_disk_size
   }
 
   os_profile {

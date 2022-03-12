@@ -80,6 +80,12 @@ variable "os_disk_type" {
   default     = "Standard_LRS"
 }
 
+variable "os_disk_size" {
+  description = "(Optional) Operating System disk Size. Defaults to null."
+  type        = null
+  default     = null
+}
+
 variable "os_image" {
   description = "Details of the image to be used to provision on the VM"
   type        = map(string)
