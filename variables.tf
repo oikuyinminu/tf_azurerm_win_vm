@@ -115,7 +115,7 @@ variable "optional_tags" {
 variable "power_management_tags" {
   description = "(Optional) Power management tags for start-up and shutdown"
   type = object({
-    WM_StartTime = string
+    VM_StartTime = string
     VM_StopTime  = string
   })
   default = {
