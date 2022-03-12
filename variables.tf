@@ -13,7 +13,7 @@ variable "resource_group_name" {
   type        = string
 }
 
-variable "size" {
+variable "vm_size" {
   description = "Size of VM to be deployed."
   type        = string
 }
