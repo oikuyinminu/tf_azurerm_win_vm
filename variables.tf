@@ -82,7 +82,7 @@ variable "os_disk_type" {
 
 variable "os_disk_size" {
   description = "(Optional) Operating System disk Size. Defaults to null."
-  type        = null
+  type        = number
   default     = null
 }
 
