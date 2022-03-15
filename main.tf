@@ -1,7 +1,7 @@
 resource "azurerm_virtual_machine" "windows_vm" {
   name                = var.name
   location            = var.location
-  resource_group_name = var.resource_group.name
+  resource_group_name = var.resource_group_name
 
   network_interface_ids        = var.network_interface[*]
   primary_network_interface_id = var.network_interface[0]
@@ -11,7 +11,7 @@ resource "azurerm_virtual_machine" "windows_vm" {
   availability_set_id = var.availability_set_id != "" ? var.availability_set_id : null
 
   delete_os_disk_on_termination    = var.delete_os_disk_on_termination
-  delete_data_disks_on_termination = var.delete_data_disks_on_termination
+  delete_data_disk_on_termination = var.delete_data_disk_on_termination
 
   # when VM is created from Azure MarketPlace image
   dynamic "storage_image_reference" {
