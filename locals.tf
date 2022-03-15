@@ -6,15 +6,15 @@ locals {
   #Static Mapping of ENV and Regions
   ########
   env = {
-      "production" : "PRD"
-      "preproduction" : "PPD"
-      "development" : "DEV"
-      "test" : "TST"
+      production = "PRD"
+      preproduction = "PPD"
+      development = "DEV"
+      test = "TST"
   }
 
   region = {
-      "eastus" : "EUS"
-      "eastus2" : "EUS2"
+      eastus = "EUS1"
+      eastus2 = "EUS2"
   }
 
 }

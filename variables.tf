@@ -46,13 +46,14 @@ variable "availability_set_id" {
   default     = ""
 }
 
-variable "data_disk" {
+variable "data_disks" {
   description = "(Optional) Details of the pre-created managed data disks attached to VM. A list of objects containing disk ID, lun, and caching settings."
-  type = list(object({
+  type = list(list(object({
     id      = string
     lun     = number
     caching = string
-  }))
+    type = string
+  })))
   default = []
 }
 
