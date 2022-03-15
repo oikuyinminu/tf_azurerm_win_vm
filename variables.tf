@@ -1,6 +1,6 @@
 variable "name" {
   description = "Name of the Virtual Machine."
-  type        = string
+  type        = list(string)
 }
 
 variable "location" {
