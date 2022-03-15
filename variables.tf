@@ -46,29 +46,22 @@ variable "availability_set_id" {
   default     = ""
 }
 
+variable "hub_license_type" {
+  description = "(Optional) Hybrid Use Benefit License type. Should be one 'Windows_Server' or 'Windows_Client'."
+  type        = string
+  default     = ""
+}
+
 variable "data_disks" {
   description = "(Optional) Details of the pre-created managed data disks attached to VM. A list of objects containing disk ID, lun, and caching settings."
   type = list(list(object({
     id      = string
     lun     = number
     caching = string
-    type = string
+    type    = string
   })))
   default = []
 }
-
-variable "delete_os_disk_on_termination" {
-  description = "Should the OS Disk be deleted when VM is destroyed? Default to false."
-  type        = bool
-  default     = false
-}
-
-variable "delete_data_disk_on_termination" {
-  description = "Should this Data Disk to be deleted when VM is destroyed? Default to false."
-  type        = bool
-  default     = false
-}
-
 variable "custom_image_id" {
   description = "(Optional) Specifies custom image ID if VM is going to be created from a custom image."
   type        = string
