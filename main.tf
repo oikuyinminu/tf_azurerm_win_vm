@@ -45,7 +45,6 @@ resource "azurerm_windows_virtual_machine" "windows_vm" {
 
   provision_vm_agent        = true
   patch_mode                = "Manual"
-  enable_automatic_upgrades = false
   timezone                  = var.timezone
 
   license_type = var.hub_license_type != "" ? var.hub_license_type : null
