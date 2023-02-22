@@ -123,3 +123,20 @@ variable "power_management_tags" {
     VM_StopTime  = ""
   }
 }
+
+variable "identity" {
+  default = [
+    {
+      type         = "SystemAssigned"
+      identity_ids = []
+    }
+  ]
+  type = list(
+    object(
+      {
+        type         = string
+        identity_ids = list(string)
+      }
+    )
+  )
+}

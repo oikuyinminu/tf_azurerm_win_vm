@@ -17,7 +17,7 @@ locals {
     "eastus2" = "EUS2"
   }
 
- vm_data_disks = flatten([for vms, disks in zipmap(range(length(var.data_disks)), var.data_disks) : [
+  vm_data_disks = flatten([for vms, disks in zipmap(range(length(var.data_disks)), var.data_disks) : [
     for disk in disks : {
       vm_id        = vms
       disk_id      = disk.id

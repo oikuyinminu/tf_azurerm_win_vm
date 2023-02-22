@@ -32,6 +32,14 @@ resource "azurerm_windows_virtual_machine" "windows_vm" {
     }
   }
 
+  dynamic "identity" {
+    for_each = var.identity
+    content {
+      type         = identity.value["type"]
+      identity_ids = identity.value["type"] == "SystemAssigned" ? [] : identity.value["identity_ids"]
+    }
+  }
+
   os_disk {
     name                 = var.name[count.index]
     caching              = "ReadWrite"
@@ -43,10 +51,10 @@ resource "azurerm_windows_virtual_machine" "windows_vm" {
   admin_username = "adminuser"
   admin_password = var.password
 
-  provision_vm_agent        = true
-  patch_mode                = "Manual"
+  provision_vm_agent       = true
+  patch_mode               = "Manual"
   enable_automatic_updates = false
-  timezone                  = var.timezone
+  timezone                 = var.timezone
 
   license_type = var.hub_license_type != "" ? var.hub_license_type : null
 
